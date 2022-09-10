@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class CallbackTest {
 
     private WebDriver driver;
@@ -18,6 +20,11 @@ public class CallbackTest {
     @BeforeAll
     public static void setUp() {
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+    }
+    
+     @BeforeAll
+    static void setupAll() {
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
